@@ -10,26 +10,30 @@ angular.module("gessami")
     .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "SpeedProvider", "TemperatureProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, SpeedProvider, TemperatureProvider) {
         "use strict";
 
-        $interval(function () {
-            var total = 0;
+        $scope.initComponent = function () {
+            $interval(function () {
+                var total = 0;
 
-            jq.each(alert, function () {
-                total += this;
-            });
+                jq.each(alert, function () {
+                    total += this;
+                });
 
-            if (total > emergency) {
-                console.log("emergency");
-                // TODO callEmergency();
-            }
+                if (total > emergency) {
+                    console.log("emergency");
+                    // TODO callEmergency();
+                }
 
-            $scope.checkCO2();
-            $scope.checkHR();
-            $scope.checkPosition();
-            $scope.checkPulse();
-            $scope.checkSpeed();
-            $scope.checkSweat();
-            $scope.checkTemperature();
-        }, refreshIndex);
+                $scope.checkCO2();
+                $scope.checkHR();
+                //$scope.checkPosition();
+                $scope.checkPulse();
+                $scope.checkSpeed();
+                $scope.checkSweat();
+                $scope.checkTemperature();
+            }, refreshIndex);
+
+            $scope.checkPositionData();
+        };
 
         $scope.checkCO2 = function () {
             CO2Provider.getCO2Data(function (co2Data) {
@@ -80,12 +84,21 @@ angular.module("gessami")
                     alert[4] = 0;
                 }
             }, function (errorString) {
-                console.log("Error in PositionProvider: " + errorString);
+                console.log("Error in HRProvider: " + errorString);
             });
         };
 
         $scope.checkPosition = function () {
             PositionProvider.getPositionData(function (positionData) {
+                $scope.locationX = positionData.locationX;
+                $scope.locationY = positionData.locationY;
+            }, function (errorString) {
+                console.log("Error in PositionProvider: " + errorString);
+            });
+        };
+
+        $scope.checkPositionData = function () {
+            PositionProvider.checkPositionData(function (positionData) {
                 $scope.locationX = positionData.locationX;
                 $scope.locationY = positionData.locationY;
             }, function (errorString) {
@@ -121,7 +134,7 @@ angular.module("gessami")
                     alert[1] = 0;
                 }
             }, function (errorString) {
-                console.log("Error in PulseProvider: " + errorString);
+                console.log("Error in SpeedProvider: " + errorString);
             });
         };
 
@@ -137,7 +150,7 @@ angular.module("gessami")
                     alert[2] = 0;
                 }
             }, function (errorString) {
-                console.log("Error in PulseProvider: " + errorString);
+                console.log("Error in SweatProvider: " + errorString);
             });
         };
 
@@ -153,7 +166,7 @@ angular.module("gessami")
                     alert[5] = 0;
                 }
             }, function (errorString) {
-                console.log("Error in PulseProvider: " + errorString);
+                console.log("Error in TemperatureProvider: " + errorString);
             });
         };
 
