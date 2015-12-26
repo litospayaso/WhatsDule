@@ -1,0 +1,39 @@
+{
+  "name": "gessami",
+  "version": "1.0.0",
+  "description": "Final grade project by Ángel Hita from Polithecnical University of Madrid (UPM)",
+  "author": "Ángel Jesús Hita Barraza <angel.hita.barraza@alumnos.upm.es>",
+  "contributors": [
+    {
+      "name": "Ángel Jesús Hita Barraza",
+      "email": "angel.hita.barraza@alumnos.upm.es"
+    }
+  ],
+  "scripts": {
+    "test": "gulp",
+    "predeploy": "gulp deploy"
+  },
+  "main": "app/index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ignaciohita/gessami.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ignaciohita/gessami/issues"
+  },
+  "keywords": [
+    "angularJS",
+    "cordova"
+  ],
+  "preferGlobal": true,
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "cordova": "^5.4.1",
+    "gulp-gjslint": "0.1.5",
+    "gulp-jshint": "2.0.0",
+    "gulp-jslint": "0.2.2",
+    "gulp-webserver": "^0.9.1",
+    "jshint": "2.8.0"
+  }
+}

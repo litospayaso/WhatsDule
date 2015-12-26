@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8' ?>
+    <widget id="pro.hita.gessami" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+        <name>gessamí</name>
+        <description>Final grade project by Ángel Hita from Polithecnical University of Madrid (UPM)</description>
+        <author email="angel.hita.barraza@alumnos.upm.es" href="http://www.hita.pro">Ángel Jesús Hita Barraza</author>
+        <content src="index.html" />
+        <preference name="android-minSdkVersion" value="14" />
+        <preference name="SplashScreen" value="screen" />
+
+        <plugin name="cordova-plugin-splashscreen" spec="2.1.0" />
+        <plugin name="cordova-plugin-vibration" spec="2.0.0" />
+
+        <platform name="android">
+            <allow-intent href="market:*" />
+
+            <icon density="ldpi" src="www/img/icon/icon36x36.png" />
+            <icon density="mdpi" src="www/img/icon/icon48x48.png" />
+            <icon density="hdpi" src="www/img/icon/icon72x72.png" />
+            <icon density="xhdpi" src="www/img/icon/icon96x96.png" />
+
+            <splash density="land-ldpi" src="www/img/splash/splash320x200.png" />
+            <splash density="land-mdpi" src="www/img/splash/splash480x320.png" />
+            <splash density="land-hdpi" src="www/img/splash/splash800x480.png" />
+            <splash density="land-xhdpi" src="www/img/splash/splash1280x720.png" />
+            <splash density="land-xxhdpi" src="www/img/splash/splash1600x960.png" />
+            <splash density="land-xxxhdpi" src="www/img/splash/splash1920x1280.png" />
+
+            <splash density="port-ldpi" src="www/img/splash/splash200x320.png" />
+            <splash density="port-mdpi" src="www/img/splash/splash320x480.png" />
+            <splash density="port-hdpi" src="www/img/splash/splash480x800.png" />
+            <splash density="port-xhdpi" src="www/img/splash/splash720x1280.png" />
+            <splash density="port-xxhdpi" src="www/img/splash/splash960x1600.png" />
+            <splash density="port-xxxhdpi" src="www/img/splash/splash1280x1920.png" />
+        </platform>
+
+        <engine name="android" spec="4.0.0" />
+    </widget>
