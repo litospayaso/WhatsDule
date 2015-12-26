@@ -7,7 +7,7 @@ var jq = $.noConflict(),
     cancelEmergency = 0;
 
 angular.module("gessami")
-    .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "SpeedProvider", "TemperatureProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, SpeedProvider, TemperatureProvider) {
+    .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "TemperatureProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, TemperatureProvider) {
         "use strict";
 
         $scope.initComponent = function () {
@@ -27,7 +27,7 @@ angular.module("gessami")
                 $scope.checkHR();
                 //$scope.checkPosition();
                 $scope.checkPulse();
-                $scope.checkSpeed();
+                //$scope.checkSpeed();
                 $scope.checkSweat();
                 $scope.checkTemperature();
             }, refreshIndex);
@@ -88,19 +88,19 @@ angular.module("gessami")
             });
         };
 
-        $scope.checkPosition = function () {
-            PositionProvider.getPositionData(function (positionData) {
-                $scope.locationX = positionData.locationX;
-                $scope.locationY = positionData.locationY;
-            }, function (errorString) {
-                console.log("Error in PositionProvider: " + errorString);
-            });
-        };
-
         $scope.checkPositionData = function () {
             PositionProvider.checkPositionData(function (positionData) {
                 $scope.locationX = positionData.locationX;
                 $scope.locationY = positionData.locationY;
+                $scope.speed = positionData.speed;
+                console.log("speed: " + positionData.speed);
+                if (positionData.speed > positionData.alertaSpeed) {
+                    jq('#speedBox').css('border-color', 'blue');
+                    alert[1] = 1;
+                } else {
+                    jq('#speedBox').css('border-color', '');
+                    alert[1] = 0;
+                }
             }, function (errorString) {
                 console.log("Error in PositionProvider: " + errorString);
             });
@@ -119,22 +119,6 @@ angular.module("gessami")
                 }
             }, function (errorString) {
                 console.log("Error in PulseProvider: " + errorString);
-            });
-        };
-
-        $scope.checkSpeed = function () {
-            SpeedProvider.getSpeedData(function (speedData) {
-                $scope.speed = speedData.velocidad;
-
-                if (speedData.velocidad > speedData.alerta) {
-                    jq('#speedBox').css('border-color', 'red');
-                    alert[1] = 1;
-                } else {
-                    jq('#speedBox').css('border-color', '');
-                    alert[1] = 0;
-                }
-            }, function (errorString) {
-                console.log("Error in SpeedProvider: " + errorString);
             });
         };
 

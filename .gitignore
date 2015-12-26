@@ -4,3 +4,5 @@
 /platforms/
 /plugins/
 /www/
+exportar.sh
+npm-debug.log

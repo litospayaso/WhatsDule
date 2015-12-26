@@ -7,41 +7,14 @@ angular.module("gessami")
 
         this.$get = function () {
             return {
-                getPositionData: function (successHandler, errorHandler) {
-                    var locationX = 0,
-                        locationY = 0,
-                        onSuccess = function (position) {
-                            locationX = position.coords.latitude;
-                            locationY = position.coords.longitude;
-
-                            successHandler({
-                                locationX: locationX,
-                                locationY: locationY
-                            });
-                        },
-
-                        onError = function (error) {
-                            errorHandler("Error when getting location");
-                        };
-
-                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-                    if (locationX > 0) {
-                        successHandler({
-                            locationX: locationX,
-                            locationY: locationY
-                        });
-                    } else {
-                        errorHandler("Error when getting location");
-                    }
-                },
-
                 checkPositionData: function (successHandler, errorHandler) {
                     if (navigator && navigator.geolocation && navigator.geolocation.watchPosition) {
                         currentPosition = navigator.geolocation.watchPosition(function (position) {
                             successHandler({
                                 locationX: position.coords.latitude,
-                                locationY: position.coords.longitude
+                                locationY: position.coords.longitude,
+                                speed: position.coords.speed,
+                                alertaSpeed: 80
                             });
                         }, function (error) {
                             errorHandler("Geolocation error: " + error.code + " - " + error.message);
