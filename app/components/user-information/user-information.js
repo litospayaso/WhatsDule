@@ -25,13 +25,10 @@ angular.module("gessami")
 
                 $scope.checkCO2();
                 $scope.checkHR();
-                //$scope.checkPosition();
                 $scope.checkPulse();
-                //$scope.checkSpeed();
                 $scope.checkSweat();
                 $scope.checkTemperature();
             }, refreshIndex);
-
             $scope.checkPositionData();
         };
 
@@ -159,19 +156,7 @@ angular.module("gessami")
                 cancelEmergency = 0;
             } else {
                 jq("#calling").css("display", "block");
-
-                if (navigator && navigator.vibrate) {
-                    navigator.vibrate(3000);
-                }
-
-                var counter = 5,
-                    interval2 = setInterval(function () {
-                        counter -= 1;
-                        if (counter < 0) {
-                            clearInterval(interval2);
-                            jq("#calling").css("display", "none");
-                        }
-                    }, refreshIndex);
+                $scope.makeACall();
             }
         };
 
@@ -196,5 +181,36 @@ angular.module("gessami")
 
         $scope.cancelEmergency = function () {
             cancelEmergency += 1;
+        };
+
+        $scope.makeACall = function () {
+            var numeroTelf = localStorage.getItem("localContactEmergency");
+
+            window.plugins.CallNumber.callNumber(
+                function onSuccess() {
+                    jq("#callingResponse").html("Making a call...");
+                    var counter = 5,
+                        interval2 = setInterval(function () {
+                            counter -= 1;
+                            if (counter < 0) {
+                                clearInterval(interval2);
+                                jq("#calling").css("display", "none");
+                            }
+                        }, refreshIndex);
+                },
+                function onError() {
+                    jq("#callingResponse").html("Unable to make the call. Please try again.");
+                    var counter = 5,
+                        interval2 = setInterval(function () {
+                            counter -= 1;
+                            if (counter < 0) {
+                                clearInterval(interval2);
+                                jq("#calling").css("display", "none");
+                            }
+                        }, refreshIndex);
+                },
+                numeroTelf
+            );
+
         };
     }]);
