@@ -253,7 +253,7 @@ angular.module("gessami")
                         }, refreshIndex);
                 },
                 function error() {
-                    jq("#callingResponse").html("Unable to make the call. Please try again.");
+                    jq("#callingResponse").html("Unable to send the SMS. Please try again.");
                     var counter = 5,
                         interval2 = setInterval(function () {
                             counter -= 1;
@@ -278,7 +278,7 @@ angular.module("gessami")
                 null,
                 null,
                 function success() {
-                    jq("#callingResponse").html("Sending SMS...");
+                    jq("#callingResponse").html("Sending Whatsapp...");
                     var counter = 5,
                         interval2 = setInterval(function () {
                             counter -= 1;
