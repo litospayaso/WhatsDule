@@ -22,7 +22,6 @@ angular.module("gessami")
                     console.log("emergency");
                     // TODO callEmergency();
                 }
-
                 $scope.checkCO2();
                 $scope.checkHR();
                 $scope.checkPulse();
@@ -152,6 +151,13 @@ angular.module("gessami")
         };
 
 
+
+
+
+
+
+
+
         //ALGORITHM PART:
 
         $scope.emergency = function () {
@@ -160,6 +166,7 @@ angular.module("gessami")
             } else {
                 jq("#calling").css("display", "block");
                 var notification = localStorage.getItem("localNotification");
+
                 if (notification === "call") {
                     $scope.makeACall();
                 }
@@ -169,6 +176,8 @@ angular.module("gessami")
                 if (notification === "whatsapp") {
                     $scope.sendAWhatsapp();
                 }
+                $scope.recordConversation(30);
+
             }
         };
 
@@ -268,15 +277,16 @@ angular.module("gessami")
 
         $scope.sendAWhatsapp = function () {
             var numeroTelf = localStorage.getItem("localContactEmergency"),
-                mensaje = localStorage.getItem("localMensaje");
+                mensaje = localStorage.getItem("localMensaje"),
+                url = "http://www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY;
 
-            mensaje = mensaje + " \n " + " http: //www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY;
+            mensaje = mensaje + "  " + url;
 
             window.plugins.socialsharing.shareViaWhatsAppToReceiver(
                 numeroTelf,
                 mensaje,
-                null,
-                null,
+                null, //img
+                null, //url
                 function success() {
                     jq("#callingResponse").html("Sending Whatsapp...");
                     var counter = 5,
@@ -289,6 +299,29 @@ angular.module("gessami")
                         }, refreshIndex);
                 }
             );
+        };
+
+        $scope.recordConversation = function (duration) {
+            var src = "myrecording.mp3",
+                duracion = duration * 1000,
+                mediaRec = new Media(src,
+                    // success callback
+                    function () {
+                        console.log("recordAudio():Audio Success");
+                    },
+
+                    // error callback
+                    function (err) {
+                        console.log("recordAudio():Audio Error: " + err.code);
+                    });
+
+            // Record audio
+            mediaRec.startRecord();
+
+            // Stop recording after 30 seconds
+            setTimeout(function () {
+                mediaRec.stopRecord();
+            }, duracion);
         };
 
     }]);
