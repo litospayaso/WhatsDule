@@ -151,12 +151,21 @@ angular.module("gessami")
             });
         };
 
+
+        //ALGORITHM PART:
+
         $scope.emergency = function () {
             if (cancelEmergency > 0) {
                 cancelEmergency = 0;
             } else {
                 jq("#calling").css("display", "block");
-                $scope.makeACall();
+                var notification = localStorage.getItem("localNotification");
+                if (notification === "call") {
+                    $scope.makeACall();
+                }
+                if (notification === "sms") {
+                    $scope.sendAnSMS();
+                }
             }
         };
 
@@ -211,6 +220,47 @@ angular.module("gessami")
                 },
                 numeroTelf
             );
-
         };
+
+        $scope.sendAnSMS = function () {
+            var numeroTelf = localStorage.getItem("localContactEmergency"),
+                mensaje = localStorage.getItem("localMensaje"),
+                options = {
+                    replaceLineBreaks: true, // true to replace \n by a new line, false by default
+                    android: {
+                        //intent: 'INTENT'
+                        intent: ''
+                    }
+                };
+            mensaje = mensaje + "\n" + "http: //www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY;
+
+            sms.send(
+                numeroTelf,
+                mensaje,
+                options,
+                function success() {
+                    jq("#callingResponse").html("Sending SMS...");
+                    var counter = 5,
+                        interval2 = setInterval(function () {
+                            counter -= 1;
+                            if (counter < 0) {
+                                clearInterval(interval2);
+                                jq("#calling").css("display", "none");
+                            }
+                        }, refreshIndex);
+                },
+                function error() {
+                    jq("#callingResponse").html("Unable to make the call. Please try again.");
+                    var counter = 5,
+                        interval2 = setInterval(function () {
+                            counter -= 1;
+                            if (counter < 0) {
+                                clearInterval(interval2);
+                                jq("#calling").css("display", "none");
+                            }
+                        }, refreshIndex);
+                }
+            );
+        };
+
     }]);
