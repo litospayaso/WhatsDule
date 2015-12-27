@@ -166,6 +166,9 @@ angular.module("gessami")
                 if (notification === "sms") {
                     $scope.sendAnSMS();
                 }
+                if (notification === "whatsapp") {
+                    $scope.sendAWhatsapp();
+                }
             }
         };
 
@@ -251,6 +254,31 @@ angular.module("gessami")
                 },
                 function error() {
                     jq("#callingResponse").html("Unable to make the call. Please try again.");
+                    var counter = 5,
+                        interval2 = setInterval(function () {
+                            counter -= 1;
+                            if (counter < 0) {
+                                clearInterval(interval2);
+                                jq("#calling").css("display", "none");
+                            }
+                        }, refreshIndex);
+                }
+            );
+        };
+
+        $scope.sendAWhatsapp = function () {
+            var numeroTelf = localStorage.getItem("localContactEmergency"),
+                mensaje = localStorage.getItem("localMensaje");
+
+            mensaje = mensaje + " \n " + " http: //www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY;
+
+            window.plugins.socialsharing.shareViaWhatsAppToReceiver(
+                numeroTelf,
+                mensaje,
+                null,
+                null,
+                function success() {
+                    jq("#callingResponse").html("Sending SMS...");
                     var counter = 5,
                         interval2 = setInterval(function () {
                             counter -= 1;
