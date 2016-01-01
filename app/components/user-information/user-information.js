@@ -197,16 +197,16 @@ angular.module("gessami")
                 var notification = localStorage.getItem("localNotification");
 
                 if (notification === "call") {
-                    $scope.makeACall();
+                    $scope.makeCall();
                 }
                 if (notification === "sms") {
-                    $scope.sendAnSMS();
+                    $scope.sendSMS();
                 }
                 if (notification === "whatsapp") {
-                    $scope.sendAWhatsapp();
+                    $scope.sendWhatsApp();
                 }
-                $scope.recordConversation(30);
 
+                $scope.recordConversation(30000);
             }
         };
 
