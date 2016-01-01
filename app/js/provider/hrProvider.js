@@ -2,15 +2,15 @@
 angular.module("gessami")
     .provider("HRProvider", function () {
         "use strict";
-
+        var anterior = 0;
         this.$get = function () {
             return {
                 getHRData: function (successHandler, errorHandler) {
-                    var anterior = 0,
-                        hr = Math.round(Math.random() * 10),
+
+                    var hr = Math.round(Math.random() * 4) + 79,
                         incremental = Math.sqrt(Math.pow(hr - anterior, 2)),
-                        alertaHR = 7,
-                        alertaInc = 4;
+                        alertaHR = 110,
+                        alertaInc = 17;
 
                     if (Math.random() < 0.95) {
                         successHandler({
@@ -19,6 +19,7 @@ angular.module("gessami")
                             alertaHR: alertaHR,
                             alertaInc: alertaInc
                         });
+                        anterior = hr;
                     } else {
                         errorHandler("Error when getting HR");
                     }

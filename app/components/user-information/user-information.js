@@ -3,8 +3,9 @@
 var jq = $.noConflict(),
     alert = [0, 0, 0, 0, 0, 0, 0, 0, 0],
     emergency = 2,
-    refreshIndex = 1000,
-    cancelEmergency = 0;
+    refreshIndex = 3000,
+    cancelEmergency = 0,
+    emergencySent = 0;
 
 angular.module("gessami")
     .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "TemperatureProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, TemperatureProvider) {
@@ -17,10 +18,18 @@ angular.module("gessami")
                 jq.each(alert, function () {
                     total += this;
                 });
+                total -= total[1]; //Check if user is running.
 
                 if (total > emergency) {
                     console.log("emergency");
-                    // TODO callEmergency();
+                    if (emergencySent > 0) {
+                        emergencySent += 1;
+                        if (emergencySent > 3) {
+                            emergencySent = 0;
+                        }
+                    } else {
+                        $scope.callEmergency();
+                    }
                 }
                 $scope.checkCO2();
                 $scope.checkHR();
@@ -46,7 +55,7 @@ angular.module("gessami")
 
                 if (co2Data.co2 > co2Data.alertaCo2) {
                     jq('#co2Box').css('border-color', 'red');
-                    alert[7] = 1;
+                    alert[7] = 2;
                 } else {
                     jq('#co2Box').css('border-color', '');
                     alert[7] = 0;
@@ -159,6 +168,24 @@ angular.module("gessami")
 
 
         //ALGORITHM PART:
+        $scope.callEmergency = function () {
+            jq("#emergencyAlert").css("display", "block");
+            var counter = 5,
+                interval = setInterval(function () {
+                    jq("#currentSeconds").html(counter);
+                    counter -= 1;
+
+                    if (navigator && navigator.vibrate) {
+                        navigator.vibrate(500);
+                    }
+
+                    if (counter < 0) {
+                        jq("#emergencyAlert").css("display", "none");
+                        $scope.emergency();
+                        clearInterval(interval);
+                    }
+                }, 1000);
+        };
 
         $scope.emergency = function () {
             if (cancelEmergency > 0) {
@@ -179,25 +206,6 @@ angular.module("gessami")
                 $scope.recordConversation(30);
 
             }
-        };
-
-        $scope.callEmergency = function () {
-            jq("#emergencyAlert").css("display", "block");
-            var counter = 5,
-                interval = setInterval(function () {
-                    jq("#currentSeconds").html(counter);
-                    counter -= 1;
-
-                    if (navigator && navigator.vibrate) {
-                        navigator.vibrate(500);
-                    }
-
-                    if (counter < 0) {
-                        jq("#emergencyAlert").css("display", "none");
-                        $scope.emergency();
-                        clearInterval(interval);
-                    }
-                }, refreshIndex);
         };
 
         $scope.cancelEmergency = function () {

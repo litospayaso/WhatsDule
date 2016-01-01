@@ -6,8 +6,8 @@ angular.module("gessami")
         this.$get = function () {
             return {
                 getSweatData: function (successHandler, errorHandler) {
-                    var sudor = Math.round(Math.random() * 100),
-                        alerta = 70;
+                    var sudor = Math.round(Math.random() * 2) + 18,
+                        alerta = 30;
 
                     if (Math.random() < 0.95) {
                         successHandler({

@@ -6,10 +6,10 @@ angular.module("gessami")
         this.$get = function () {
             return {
                 getCO2Data: function (successHandler, errorHandler) {
-                    var breath = Math.round(Math.random() * 10),
-                        co2 = Math.round(Math.random() * 10),
-                        alertaBreath = 7,
-                        alertaCo2 = 4;
+                    var breath = Math.round(Math.random() * 3) + 24,
+                        co2 = Math.round(Math.random() * 4) + 35,
+                        alertaBreath = 35,
+                        alertaCo2 = 45;
 
                     if (Math.random() < 0.95) {
                         successHandler({

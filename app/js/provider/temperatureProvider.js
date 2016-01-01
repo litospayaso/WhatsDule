@@ -6,8 +6,9 @@ angular.module("gessami")
         this.$get = function () {
             return {
                 getTemperatureData: function (successHandler, errorHandler) {
-                    var temperature = Math.round(Math.random() * 10),
-                        alerta = 7;
+                    //var temperature = Math.round(Math.random() * 10),                    
+                    var temperature = 37,
+                        alerta = 39;
 
                     if (Math.random() < 0.95) {
                         successHandler({

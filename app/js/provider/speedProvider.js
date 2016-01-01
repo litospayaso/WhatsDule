@@ -6,8 +6,8 @@ angular.module("gessami")
         this.$get = function () {
             return {
                 getSpeedData: function (successHandler, errorHandler) {
-                    var velocidad = Math.round(Math.random() * 100),
-                        alerta = 80;
+                    var velocidad = Math.round(Math.random() * 20),
+                        alerta = 30;
 
                     if (Math.random() < 0.95) {
                         successHandler({
