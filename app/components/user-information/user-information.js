@@ -8,7 +8,7 @@ var jq = $.noConflict(),
     emergencySent = 0;
 
 angular.module("gessami")
-    .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "TemperatureProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, TemperatureProvider) {
+    .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "TemperatureProvider", "PhoneCallProvider", "SmsProvider", "WhatsAppProvider", "ConversationProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, TemperatureProvider, PhoneCallProvider, SmsProvider, WhatsAppProvider, ConversationProvider) {
         "use strict";
 
         $scope.initComponent = function () {
@@ -31,12 +31,14 @@ angular.module("gessami")
                         $scope.callEmergency();
                     }
                 }
+
                 $scope.checkCO2();
                 $scope.checkHR();
                 $scope.checkPulse();
                 $scope.checkSweat();
                 $scope.checkTemperature();
             }, refreshIndex);
+
             $scope.checkPositionData();
         };
 
@@ -212,124 +214,80 @@ angular.module("gessami")
             cancelEmergency += 1;
         };
 
-        $scope.makeACall = function () {
-            var numeroTelf = localStorage.getItem("localContactEmergency");
-
-            window.plugins.CallNumber.callNumber(
-                function onSuccess() {
-                    jq("#callingResponse").html("Making a call...");
-                    var counter = 5,
-                        interval2 = setInterval(function () {
-                            counter -= 1;
-                            if (counter < 0) {
-                                clearInterval(interval2);
-                                jq("#calling").css("display", "none");
-                            }
-                        }, refreshIndex);
-                },
-                function onError() {
-                    jq("#callingResponse").html("Unable to make the call. Please try again.");
-                    var counter = 5,
-                        interval2 = setInterval(function () {
-                            counter -= 1;
-                            if (counter < 0) {
-                                clearInterval(interval2);
-                                jq("#calling").css("display", "none");
-                            }
-                        }, refreshIndex);
-                },
-                numeroTelf
-            );
+        $scope.emergencyFinished = function () {
+            var counter = 5,
+                interval2 = setInterval(
+                    function () {
+                        counter -= 1;
+                        if (counter < 0) {
+                            clearInterval(interval2);
+                            jq("#calling").css("display", "none");
+                        }
+                    },
+                    refreshIndex
+                );
         };
 
-        $scope.sendAnSMS = function () {
-            var numeroTelf = localStorage.getItem("localContactEmergency"),
-                mensaje = localStorage.getItem("localMensaje"),
-                options = {
-                    replaceLineBreaks: true, // true to replace \n by a new line, false by default
-                    android: {
-                        //intent: 'INTENT'
-                        intent: ''
-                    }
-                };
-            mensaje = mensaje + "\n" + "http: //www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY;
-
-            sms.send(
-                numeroTelf,
-                mensaje,
-                options,
-                function success() {
-                    jq("#callingResponse").html("Sending SMS...");
-                    var counter = 5,
-                        interval2 = setInterval(function () {
-                            counter -= 1;
-                            if (counter < 0) {
-                                clearInterval(interval2);
-                                jq("#calling").css("display", "none");
-                            }
-                        }, refreshIndex);
+        $scope.makeCall = function () {
+            PhoneCallProvider.makePhoneCall(
+                localStorage.getItem("localContactEmergency"),
+                function () {
+                    jq("#callingResponse").html("Making a call...");
+                    $scope.emergencyFinished();
                 },
-                function error() {
-                    jq("#callingResponse").html("Unable to send the SMS. Please try again.");
-                    var counter = 5,
-                        interval2 = setInterval(function () {
-                            counter -= 1;
-                            if (counter < 0) {
-                                clearInterval(interval2);
-                                jq("#calling").css("display", "none");
-                            }
-                        }, refreshIndex);
+                function (errorString) {
+                    console.log("Error in PhoneCallProvider: " + errorString);
+
+                    jq("#callingResponse").html("Unable to make the call. Please try again.");
+                    $scope.emergencyFinished();
                 }
             );
         };
 
-        $scope.sendAWhatsapp = function () {
-            var numeroTelf = localStorage.getItem("localContactEmergency"),
-                mensaje = localStorage.getItem("localMensaje"),
-                url = "http://www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY;
+        $scope.sendSMS = function () {
+            SmsProvider.sendSMS(
+                localStorage.getItem("localContactEmergency"),
+                localStorage.getItem("localMensaje") + "\nhttp: //www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY,
+                function () {
+                    jq("#callingResponse").html("Sending SMS...");
+                    $scope.emergencyFinished();
+                },
+                function (errorString) {
+                    console.log("Error in SmsProvider: " + errorString);
 
-            mensaje = mensaje + "  " + url;
+                    jq("#callingResponse").html("Unable to send SMS. Please try again.");
+                    $scope.emergencyFinished();
+                }
+            );
+        };
 
-            window.plugins.socialsharing.shareViaWhatsAppToReceiver(
-                numeroTelf,
-                mensaje,
-                null, //img
-                null, //url
-                function success() {
+        $scope.sendWhatsApp = function () {
+            WhatsAppProvider.sendWhatsApp(
+                localStorage.getItem("localContactEmergency"),
+                localStorage.getItem("localMensaje"),
+                "http: //www.google.es/maps/place/" + $scope.locationX + "," + $scope.locationY,
+                function () {
                     jq("#callingResponse").html("Sending Whatsapp...");
-                    var counter = 5,
-                        interval2 = setInterval(function () {
-                            counter -= 1;
-                            if (counter < 0) {
-                                clearInterval(interval2);
-                                jq("#calling").css("display", "none");
-                            }
-                        }, refreshIndex);
+                    $scope.emergencyFinished();
+                },
+                function (errorString) {
+                    console.log("Error in WhatsAppProvider: " + errorString);
+
+                    jq("#callingResponse").html("Unable to send WhatsApp. Please try again.");
+                    $scope.emergencyFinished();
                 }
             );
         };
 
         $scope.recordConversation = function (duration) {
-            var src = "myrecording.mp3",
-                duracion = duration * 1000,
-                mediaRec = new Media(src,
-                    // success callback
-                    function () {
-                        console.log("recordAudio():Audio Success");
-                    },
-
-                    // error callback
-                    function (err) {
-                        console.log("recordAudio():Audio Error: " + err.code);
-                    });
-
-            // Record audio
-            mediaRec.startRecord();
-
-            // Stop recording after 30 seconds
-            setTimeout(function () {
-                mediaRec.stopRecord();
-            }, duracion);
+            ConversationProvider.recordConversation(
+                duration,
+                function () {
+                    console.log("recordAudio():Audio Success");
+                },
+                function (errorString) {
+                    console.log("Error in ConversationProvider: " + errorString);
+                }
+            );
         };
-
     }]);

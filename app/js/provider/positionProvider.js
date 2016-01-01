@@ -13,7 +13,7 @@ angular.module("gessami")
                             successHandler({
                                 locationX: position.coords.latitude,
                                 locationY: position.coords.longitude,
-                                speed: position.coords.speed,
+                                speed: position.coords.speed || 0,
                                 alertaSpeed: 80
                             });
                         }, function (error) {
