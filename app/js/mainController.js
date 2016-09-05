@@ -25,11 +25,26 @@ angular.module("gessami", ["ngNewRouter"])
                 components: {
                     "main": "userInformation"
                 }
+            },{
+                path: "/bagoazGaiak",
+                components: {
+                    "main": "bagoazGaiak"
+                }
+            },{
+                path: "/bagoazLexiko",
+                components: {
+                    "main": "bagoazLexiko"
+                }
+            },{
+                path: "/bagoazAriketak",
+                components: {
+                    "main": "bagoazAriketak"
+                }
             }
         ]);
 
         $scope.initApp = function () {
-            $location.path("/userInformation");
+            $location.path("/bagoazGaiak");
         };
 
         $scope.moveScreen = function (targetScreen) {
