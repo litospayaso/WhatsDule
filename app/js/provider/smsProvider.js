@@ -1,5 +1,5 @@
 /*global angular, sms*/
-angular.module("gessami")
+angular.module("bagoaz")
     .provider("SmsProvider", function () {
         "use strict";
 

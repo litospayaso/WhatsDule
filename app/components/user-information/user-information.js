@@ -7,7 +7,7 @@ var jq = $.noConflict(),
     cancelEmergency = 0,
     emergencySent = 0;
 
-angular.module("gessami")
+angular.module("bagoaz")
     .controller("UserInformationController", ["$rootScope", "$scope", "$interval", "PositionProvider", "PulseProvider", "CO2Provider", "HRProvider", "SweatProvider", "TemperatureProvider", "PhoneCallProvider", "SmsProvider", "WhatsAppProvider", "ConversationProvider", function ($rootScope, $scope, $interval, PositionProvider, PulseProvider, CO2Provider, HRProvider, SweatProvider, TemperatureProvider, PhoneCallProvider, SmsProvider, WhatsAppProvider, ConversationProvider) {
         "use strict";
 

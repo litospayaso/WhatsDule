@@ -1,6 +1,6 @@
 /*global jq, angular*/
 
-angular.module("gessami")
+angular.module("bagoaz")
     .controller("UserConfigurationController", ["$rootScope", "$scope", function ($rootScope, $scope) {
         "use strict";
 

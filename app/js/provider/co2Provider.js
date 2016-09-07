@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module("gessami")
+angular.module("bagoaz")
     .provider("CO2Provider", function () {
         "use strict";
 

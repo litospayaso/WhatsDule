@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module("gessami")
+angular.module("bagoaz")
     .provider("PulseProvider", function () {
         "use strict";
 

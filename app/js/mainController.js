@@ -1,7 +1,7 @@
 /*global angular*/
 
-angular.module("gessami", ["ngNewRouter"])
-    .controller("MainController", ["$rootScope", "$scope", "$router", "$location", function ($rootScope, $scope, $router, $location) {
+angular.module("bagoaz", ["ngNewRouter","firebase"])
+    .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$firebase", function ($rootScope, $scope, $router, $location, $firebase) {
         "use strict";
 
         $router.config([

@@ -1,5 +1,5 @@
 /*global angular, cordova, Media*/
-angular.module("gessami")
+angular.module("bagoaz")
     .provider("ConversationProvider", function () {
         "use strict";
 

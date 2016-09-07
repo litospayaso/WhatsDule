@@ -10,21 +10,23 @@
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-new-router/dist/router.es5.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.js"></script>
 
     <script src="js/mainController.js"></script>
     <script src="js/provider/co2Provider.js"></script>
 
     <script src="components/gessami-about/gessami-about.js"></script>
     <script src="components/bagoaz-gaiak/bagoaz-gaiak.js"></script>
-    <script src="components/bagoaz-gaiak/bagoaz-lexiko.js"></script>
-    <script src="components/bagoaz-gaiak/bagoaz-ariketak.js"></script>
+    <script src="components/bagoaz-lexiko/bagoaz-lexiko.js"></script>
+    <script src="components/bagoaz-ariketak/bagoaz-ariketak.js"></script>
     <script src="components/user-configuration/user-configuration.js"></script>
     <script src="components/user-information/user-information.js"></script>
 
     <script src="cordova.js"></script>
 </head>
 
-<body ng-app="gessami" ng-controller="MainController" ng-init="initApp()">
+<body ng-app="bagoaz" ng-controller="MainController" ng-init="initApp()">
     <nav role="navigation" class="navbar navbar-default navbar-fixed-top well">
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -39,9 +41,9 @@
 
         <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="#" ng-click="moveScreen('bagoazAriketak')"><span class="glyphicon glyphicon-cog"></span> Ariketak</a></li>
-                <li><a href="#" ng-click="moveScreen('bagoazLexiko')"><span class="glyphicon glyphicon-question-sign"></span> Lexiko</a></li>
-                <li><a href="#" ng-click="moveScreen('bagoazGaiak')"><span class="glyphicon glyphicon-certificate"></span> Gaiak</a></li>
+                <li><a href="#" ng-click="moveScreen('bagoazGaiak')"><span class="glyphicon glyphicon-book"></span> Gaiak</a></li>
+                <li><a href="#" ng-click="moveScreen('bagoazLexiko')"><span class="glyphicon glyphicon-comment"></span> Lexiko</a></li>
+                <li><a href="#" ng-click="moveScreen('bagoazAriketak')"><span class="glyphicon glyphicon-pencil"></span> Ariketak</a></li>
             </ul>
         </div>
     </nav>
