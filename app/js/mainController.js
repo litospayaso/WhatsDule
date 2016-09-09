@@ -1,7 +1,7 @@
 /*global angular*/
 
 angular.module("bagoaz", ["ngNewRouter","firebase"])
-    .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$http", function ($rootScope, $scope, $router, $location) {
+    .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$http", function ($rootScope, $scope, $router, $location, $http) {
         "use strict";
 
         // $routeProvider.when('/bagoazIkusi/:variable1', {
@@ -50,6 +50,11 @@ angular.module("bagoaz", ["ngNewRouter","firebase"])
                 components: {
                     "main": "bagoazIkusi"
                 }
+            },{
+                path: "/bagoazBaloratzea/:variable1/:variable2",
+                components: {
+                    "main": "bagoazBaloratzea"
+                }
             }
         ]);
 
@@ -60,4 +65,12 @@ angular.module("bagoaz", ["ngNewRouter","firebase"])
         $scope.moveScreen = function (targetScreen) {
             $location.path(targetScreen);
         };
+
+        $http.get('database/bagoaz-export.json').success(function (data) {
+            //Convert data to array.
+            //datos lo tenemos disponible en la vista gracias a $scope
+            //console.log("datooos",data);
+            $rootScope.gaiak = data.gaiak;
+        });
+
     }]);
