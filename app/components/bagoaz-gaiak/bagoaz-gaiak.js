@@ -8,5 +8,6 @@ angular.module("bagoaz")
             //Convert data to array.
             //datos lo tenemos disponible en la vista gracias a $scope
             console.log("datooos",data);
+            $rootScope.gaiak = data.gaiak;
         });
     }]);

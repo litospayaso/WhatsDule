@@ -3,6 +3,12 @@
 angular.module("bagoaz", ["ngNewRouter","firebase"])
     .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$http", function ($rootScope, $scope, $router, $location) {
         "use strict";
+
+        // $routeProvider.when('/bagoazIkusi/:variable1', {
+        //     templateUrl: "bagoazIkusi.html",
+        //     controller: "BagoazIkusi"
+        // });
+
         $router.config([
             {
                 path: "/gessamiAbout",
