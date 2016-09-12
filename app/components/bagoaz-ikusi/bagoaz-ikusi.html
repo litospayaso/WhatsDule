@@ -1,4 +1,16 @@
 <div ng-controller="BagoazIkusi" style="padding-top: 130px;padding-left: 5px;padding-right: 5px">
-    <p ng-bind-html="orainGaia"></p>
-    <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="moveScreen('bagoazGaiak')">Bueltan</button>
+    <p ng-show="orainGaia" ng-bind-html="orainGaia"></p>
+    <div ng-show="lexikoak">
+    <table class="table">
+        <tr>
+            <th>Euskara</th>
+            <th>Gaztelania</th>
+        </tr>
+        <tr ng-repeat="x in lexikoak">
+            <td>{{ x.euskara }}</td>
+            <td>{{ x.gaztelania }}</td>
+        </tr>
+    </table>
+    </div>
+    <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="bueltanEginteko()">Bueltan</button>
 </div>

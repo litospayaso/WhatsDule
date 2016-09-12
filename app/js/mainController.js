@@ -1,5 +1,7 @@
 /*global angular*/
 
+var jq = $.noConflict();
+
 angular.module("bagoaz", ["ngNewRouter","firebase"])
     .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$http", function ($rootScope, $scope, $router, $location, $http) {
         "use strict";
@@ -9,11 +11,16 @@ angular.module("bagoaz", ["ngNewRouter","firebase"])
         //     controller: "BagoazIkusi"
         // });
 
+        //Fuction to close navbar after clicking.
+        jq(".navbar-nav li a").click(function(event) {
+            jq(".navbar-collapse").collapse('hide');
+        });
+
         $router.config([
             {
-                path: "/gessamiAbout",
+                path: "/bagoazAbout",
                 components: {
-                    "main": "gessamiAbout"
+                    "main": "bagoazAbout"
                 }
             }, {
                 path: "/gessamiHelp",
@@ -46,12 +53,12 @@ angular.module("bagoaz", ["ngNewRouter","firebase"])
                     "main": "bagoazAriketak"
                 }
             },{
-                path: "/bagoazIkusi/:variable1",
+                path: "/bagoazIkusi/:variable1/:variable2",
                 components: {
                     "main": "bagoazIkusi"
                 }
             },{
-                path: "/bagoazBaloratzea/:variable1/:variable2",
+                path: "/bagoazBaloratzea/:variable1",
                 components: {
                     "main": "bagoazBaloratzea"
                 }
@@ -71,6 +78,8 @@ angular.module("bagoaz", ["ngNewRouter","firebase"])
             //datos lo tenemos disponible en la vista gracias a $scope
             //console.log("datooos",data);
             $rootScope.gaiak = data.gaiak;
+            $rootScope.lexiko = data.lexiko;
+            $rootScope.ariketak = data.ariketak;
         });
 
     }]);

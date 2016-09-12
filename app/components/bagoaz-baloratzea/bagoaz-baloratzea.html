@@ -1,8 +1,21 @@
 <div ng-controller="BagoazBaloratzea" style="padding-top: 130px;padding-left: 5px;padding-right: 5px">
-    <p ng-bind-html="orainGaia"></p>
+    <blockquote>{{orainAriketa}}</blockquote>
     <div class="form-group">
         <!--label for="comment">Comment:</label-->
-        <textarea class="form-control" rows="5" id="comment"></textarea>
+        <textarea class="form-control" ng-model="erantzun" rows="5" id="comment"></textarea>
     </div>
-    <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="moveScreen('bagoazGaiak')">Bueltan</button>
+    <div id="ikusiEbazpen" class="alert alert-success" ng-show="ebazpen">
+        <strong>{{ebazpen}}</strong>{{ondoEbazpen}}
+    </div>
+    <div ng-show="ebazpen">
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="jarraitu()">Jarraitu</button>
+    </div>
+    <div class="row" ng-hide="ebazpen">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="moveScreen('bagoazAriketak')">Bueltan</button>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="zuzendu()">Zuzendu</button>
+        </div>
+    </div>
 </div>
