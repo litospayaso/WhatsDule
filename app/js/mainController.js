@@ -2,7 +2,7 @@
 
 var jq = $.noConflict();
 
-angular.module("bagoaz", ["ngNewRouter","firebase"])
+angular.module("bagoaz", ["ngNewRouter"])
     .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$http", function ($rootScope, $scope, $router, $location, $http) {
         "use strict";
 
