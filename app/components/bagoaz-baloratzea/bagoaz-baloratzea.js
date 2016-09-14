@@ -16,7 +16,7 @@ angular.module("bagoaz")
             $scope.zuzendu = function(){
                     if($scope.compareStrings($scope.erantzun,orain.gaztelania)){//if correct
                         jq("#ikusiEbazpen").attr("class","alert alert-success");
-                        $scope.ebazpen = "Oso ondo ";
+                        $scope.ebazpen = ["Oso ondo! ","Zuzen! ","Egoki! "].sort(function() {return Math.random() - 0.5}).pop();
                     }else{//if mistake
                         jq("#ikusiEbazpen").attr("class","alert alert-danger");
                         $scope.ebazpen = "Akats ";
@@ -32,7 +32,14 @@ angular.module("bagoaz")
                 $scope.erantzun = "";
 
                 if(ariketak.length==0){
-                    $scope.zorionak="Zorionak!!!"
+                    $scope.zorionak="Zorionak!!! Has completado correctamente la lección.";
+
+                    var cookie = [];
+                    if (JSON.parse(localStorage.getItem("cookie"))){
+                        cookie = JSON.parse(localStorage.getItem("cookie"));
+                    }
+                    cookie.push(level+1);
+                    localStorage.setItem("cookie", JSON.stringify(cookie));
                     return 0;
                 }
                 orain = ariketak.pop();
