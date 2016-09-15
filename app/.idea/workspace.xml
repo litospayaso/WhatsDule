@@ -53,8 +53,8 @@
       <file leaf-file-name="bagoaz-export.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database/bagoaz-export.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state relative-caret-position="142">
+              <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -364,12 +364,12 @@
       <workItem from="1473662034482" duration="19033000" />
       <workItem from="1473746272918" duration="17460000" />
       <workItem from="1473832429074" duration="22199000" />
-      <workItem from="1473919676555" duration="9772000" />
+      <workItem from="1473919676555" duration="11596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123883000" />
+    <option name="totallyTimeSpent" value="125707000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1374" height="776" extended-state="6" />
@@ -717,8 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/bagoaz-export.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        <state relative-caret-position="142">
+          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
           <folding />
         </state>
       </provider>
