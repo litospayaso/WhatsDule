@@ -4,11 +4,9 @@
         <description>Aprende euskera de manera sencilla</description>
         <author email="angel.jesuita@gmail.com" href="http://www.hita.pro">Ángel Hita</author>
         <content src="index.html" />
-        <preference name="android-minSdkVersion" value="14" />
+        <preference name="android-minSdkVersion" value="20" />
         <preference name="SplashScreen" value="screen" />
 
-        <plugin name="cordova-plugin-device-motion" spec="2.0.0" />
-        <plugin name="cordova-plugin-file" spec="3.0.0" />
         <plugin name="cordova-plugin-splashscreen" spec="2.1.0" />
 
         <platform name="android">
