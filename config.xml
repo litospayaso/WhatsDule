@@ -1,21 +1,15 @@
 <?xml version='1.0' encoding='utf-8' ?>
-    <widget id="pro.hita.gessami" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
-        <name>gessamí</name>
-        <description>Final grade project by Ángel Hita from Polithecnical University of Madrid (UPM)</description>
-        <author email="angel.hita.barraza@alumnos.upm.es" href="http://www.hita.pro">Ángel Jesús Hita Barraza</author>
+    <widget id="pro.hita.bagoaz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+        <name>Bagoaz</name>
+        <description>Aprende euskera de manera sencilla</description>
+        <author email="angel.jesuita@gmail.com" href="http://www.hita.pro">Ángel Hita</author>
         <content src="index.html" />
         <preference name="android-minSdkVersion" value="14" />
         <preference name="SplashScreen" value="screen" />
 
-        <plugin name="com.cordova.plugins.sms" spec="0.1.6" />
         <plugin name="cordova-plugin-device-motion" spec="2.0.0" />
         <plugin name="cordova-plugin-file" spec="3.0.0" />
-        <plugin name="cordova-plugin-geolocation" spec="1.0.1" />
-        <plugin name="cordova-plugin-media" spec="1.0.1" />
         <plugin name="cordova-plugin-splashscreen" spec="2.1.0" />
-        <plugin name="cordova-plugin-vibration" spec="2.0.0" />
-        <plugin name="cordova-plugin-x-socialsharing" spec="5.0.7.1" />
-        <plugin name="mx.ferreyra.callnumber" spec="0.0.2" />
 
         <platform name="android">
             <allow-intent href="market:*" />
