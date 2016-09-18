@@ -1,4 +1,4 @@
-# gessamí
-Proyecto gessamí
+# Bagoaz
+Proyecto Bagoaz
 
-Final grade project by Ángel Hita from Polithecnical University of Madrid (UPM).
+Aplicacion movil para aprender Euskera de forma sencilla e interactiva.
