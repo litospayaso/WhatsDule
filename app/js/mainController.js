@@ -6,15 +6,27 @@ angular.module("bagoaz", ["ngNewRouter"])
     .controller("MainController", ["$rootScope", "$scope", "$router", "$location", "$http", function ($rootScope, $scope, $router, $location, $http) {
         "use strict";
 
-        // $routeProvider.when('/bagoazIkusi/:variable1', {
-        //     templateUrl: "bagoazIkusi.html",
-        //     controller: "BagoazIkusi"
-        // });
-
         //Fuction to close navbar after clicking.
         jq(".navbar-nav li a").click(function(event) {
             jq(".navbar-collapse").collapse('hide');
         });
+
+        var lastScrollTop = 0;
+
+        jq(document).ready(function(){
+            jq(window).scroll(function(event){
+                var st = jq(this).scrollTop();
+                if (st > lastScrollTop){
+                    jq("#navBar").hide(750);
+                } else {
+                    jq("#navBar").show(750);
+                }
+                lastScrollTop = st;
+            });
+        });
+        //Funcion to hide navbar on scroll down and show it on scroll up.
+        // var navbar        = $('.navbar');
+
 
         $router.config([
             {

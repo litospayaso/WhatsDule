@@ -1,0 +1,10 @@
+.navbar {
+    transition-duration: 0.2s;
+}
+
+.navbar-scroll-custom {
+@media (max-width: 768px) {
+    transform: translateY(-52px);
+    transition-duration: 0.6s;
+    }
+}

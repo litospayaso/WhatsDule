@@ -5,6 +5,7 @@
 
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -28,7 +29,8 @@
 </head>
 
 <body ng-app="bagoaz" ng-controller="MainController" ng-init="initApp()">
-    <nav role="navigation" class="navbar navbar-default navbar-fixed-top well">
+    <div id="navBar">
+    <nav style="margin-bottom: 3px;" role="navigation" class="navbar navbar-default navbar-fixed-top well">
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
                 <span class="sr-only">Toggle navigation</span>
@@ -49,6 +51,7 @@
             </ul>
         </div>
     </nav>
+    </div>
 
     <div ng-viewport="main"></div>
 </body>
