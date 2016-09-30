@@ -86,7 +86,7 @@ angular.module("bagoaz", ["ngNewRouter"])
         };
 
         $http.get('database/bagoaz-export.json').success(function (data) {
-            console.log("dataaa",data);
+            // console.log("dataaa",data);
             //Convert data to array.
             //datos lo tenemos disponible en la vista gracias a $scope
             //console.log("datooos",data);

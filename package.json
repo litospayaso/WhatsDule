@@ -34,6 +34,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-gjslint": "^0.1.5",
     "gulp-inject": "^4.1.0",
+    "gulp-install": "^0.6.0",
     "gulp-jshint": "^2.0.1",
     "gulp-jslint": "^0.2.2",
     "gulp-webserver": "^0.9.1",
