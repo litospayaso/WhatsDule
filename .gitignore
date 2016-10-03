@@ -6,3 +6,6 @@
 /www/
 exportar.sh
 npm-debug.log
+*.apk
+*.keystore
+

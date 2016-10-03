@@ -4,7 +4,7 @@
         <description>Aprende euskera de manera sencilla</description>
         <author email="angel.jesuita@gmail.com" href="http://www.twitter.com/angelitq_">Ángel Hita</author>
         <content src="index.html" />
-        <preference name="android-minSdkVersion" value="22" />
+        <preference name="android-minSdkVersion" value="20" />
         <preference name="SplashScreen" value="screen" />
 
         <plugin name="cordova-plugin-splashscreen" spec="4.0.0" />
