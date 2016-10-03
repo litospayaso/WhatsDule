@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8' ?>
-    <widget id="pro.hita.bagoaz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
+    <widget id="angelita.bagoaz" version="1.0.0" xmlns="http://www.w3.org/ns/widgets">
         <name>Bagoaz</name>
         <description>Aprende euskera de manera sencilla</description>
-        <author email="angel.jesuita@gmail.com" href="http://www.hita.pro">Ángel Hita</author>
+        <author email="angel.jesuita@gmail.com" href="http://www.twitter.com/angelitq_">Ángel Hita</author>
         <content src="index.html" />
-        <preference name="android-minSdkVersion" value="20" />
+        <preference name="android-minSdkVersion" value="22" />
         <preference name="SplashScreen" value="screen" />
 
-        <plugin name="cordova-plugin-splashscreen" spec="2.1.0" />
+        <plugin name="cordova-plugin-splashscreen" spec="4.0.0" />
 
         <platform name="android">
             <allow-intent href="market:*" />
@@ -32,5 +32,5 @@
             <splash density="port-xxxhdpi" src="www/img/splash/splash1280x1920.png" />
         </platform>
 
-        <engine name="android" spec="4.0.0" />
+        <engine name="android"/>
     </widget>
