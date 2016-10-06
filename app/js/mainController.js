@@ -65,6 +65,11 @@ angular.module("bagoaz", ["ngNewRouter"])
                     "main": "bagoazAriketak"
                 }
             },{
+                path: "/bagoazBilatzaile",
+                components: {
+                    "main": "bagoazBilatzaile"
+                }
+            },{
                 path: "/bagoazIkusi/:variable1/:variable2",
                 components: {
                     "main": "bagoazIkusi"
