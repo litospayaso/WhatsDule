@@ -1,70 +1,51 @@
-/*global require, console*/
-var gulp = require("gulp"),
-    webserver = require("gulp-webserver"),
-    jsHint = require("gulp-jshint"),
-    jsLint = require("gulp-jslint"),
-    gjsLint = require("gulp-gjslint");
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var bower = require('bower');
+var concat = require('gulp-concat');
+var sass = require('gulp-sass');
+var minifyCss = require('gulp-minify-css');
+var rename = require('gulp-rename');
+var sh = require('shelljs');
 
-// Servidor web de desarrollo
-gulp.task("dev-server", function () {
-    "use strict";
+var paths = {
+  sass: ['./scss/**/*.scss']
+};
 
-    gulp.src("./app")
-        .pipe(webserver({
-            open: true,
-            livereload: true,
-            port: 12345
-        }));
+gulp.task('default', ['sass']);
+
+gulp.task('sass', function(done) {
+  gulp.src('./scss/ionic.app.scss')
+    .pipe(sass())
+    .on('error', sass.logError)
+    .pipe(gulp.dest('./www/css/'))
+    .pipe(minifyCss({
+      keepSpecialComments: 0
+    }))
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest('./www/css/'))
+    .on('end', done);
 });
 
-// Servidor web para probar versión de Apache Cordova
-gulp.task("cordova-server", function () {
-    "use strict";
-
-    gulp.src("./www")
-        .pipe(webserver({
-            open: true,
-            livereload: true
-        }));
+gulp.task('watch', function() {
+  gulp.watch(paths.sass, ['sass']);
 });
 
-// Busca errores de JavaScript de acuerdo con JsLint
-gulp.task("jsLint", function () {
-    "use strict";
-
-    return gulp.src(["./app/js/**/*.js"])
-        .pipe(jsLint())
-        .on("error", function (error) {
-            console.error(String(error));
-        });
+gulp.task('install', ['git-check'], function() {
+  return bower.commands.install()
+    .on('log', function(data) {
+      gutil.log('bower', gutil.colors.cyan(data.id), data.message);
+    });
 });
 
-// Busca errores de JavaScript de acuerdo con JsHint
-gulp.task("jsHint", function () {
-    "use strict";
-
-    return gulp.src(["./app/js/**/*.js"])
-        .pipe(jsHint(".jshintrc"))
-        .pipe(jsHint.reporter("default"));
+gulp.task('git-check', function(done) {
+  if (!sh.which('git')) {
+    console.log(
+      '  ' + gutil.colors.red('Git is not installed.'),
+      '\n  Git, the version control system, is required to download Ionic.',
+      '\n  Download git here:', gutil.colors.cyan('http://git-scm.com/downloads') + '.',
+      '\n  Once git is installed, run \'' + gutil.colors.cyan('gulp install') + '\' again.'
+    );
+    process.exit(1);
+  }
+  done();
 });
-
-// Busca errores de JavaScript de acuerdo con Google JsLinter
-gulp.task("jsGoogleLint", function () {
-    "use strict";
-
-    return gulp.src(["./app/js/**/*.js"])
-        .pipe(gjsLint())
-        .pipe(gjsLint.reporter("console"), {
-            fail: true
-        });
-});
-
-// Copia el contenido de app/ en www/ para probar la aplicación con Apache Cordova
-gulp.task("cordovaDev", function () {
-    "use strict";
-
-    gulp.src("./app/**/*")
-        .pipe(gulp.dest("./www/"));
-});
-
-gulp.task("default", ["dev-server"]);

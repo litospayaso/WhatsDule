@@ -1,0 +1,14 @@
+<ion-view view-title="Bilatzaile" style="margin-left:3px">
+  <ion-content>
+    <div ng-controller="BagoazBilatzaile">
+
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Bilatzaile" ng-model="searchWord" ng-change="search()">
+      </label>
+      <div ng-repeat="n in bilatzaileIndex">
+        <button type="button" class="button button-block button-positive" ng-click="moveScreen('app/Ikusi/gaia/'+n)">{{n}} Gaia</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

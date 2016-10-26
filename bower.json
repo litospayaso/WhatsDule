@@ -1,9 +1,7 @@
 {
-  "name": "gessami",
-  "version": "1.0.0",
-  "homepage": "https://github.com/ignaciohita/gessami",
-  "description": "Este es mi proyecto para bla bla bla...",
-  "main": "app/index.html",
+  "name": "Bagoaz",
+  "version": "1.0.1",
+  "main": "www/index.html",
   "moduleType": [
     "globals"
   ],
@@ -18,11 +16,12 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "app/lib"
+    "www/lib"
   ],
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.3.2"
+  },
   "dependencies": {
-    "angular": "^1.5.8",
-    "bootstrap": "3.3.6",
-    "angular-new-router": "0.5.3"
+    "bootstrap": "^3.3.7"
   }
 }

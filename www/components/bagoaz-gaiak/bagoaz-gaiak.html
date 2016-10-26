@@ -1,0 +1,9 @@
+<ion-view view-title="Gaiak" style="margin-left:3px">
+  <ion-content>
+    <div ng-controller="BagoazGaiak">
+      <div ng-repeat="n in gaiakIndex">
+        <button type="button" ng-class="colorButton(n)" ng-click="moveScreen('app/Ikusi/gaia/'+n)">{{n}} Gaia</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
