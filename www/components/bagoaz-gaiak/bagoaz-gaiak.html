@@ -2,7 +2,7 @@
   <ion-content>
     <div ng-controller="BagoazGaiak">
       <div ng-repeat="n in gaiakIndex">
-        <button type="button" ng-class="colorButton(n)" ng-click="moveScreen('app/Ikusi/gaia/'+n)">{{n}} Gaia</button>
+        <button type="button" ng-class="colorButton(n.maila)" ng-click="moveScreen('app/Ikusi/gaia/'+n.maila)">{{n.izenburu}}</button>
       </div>
     </div>
   </ion-content>
