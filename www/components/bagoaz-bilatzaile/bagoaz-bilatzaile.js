@@ -8,10 +8,10 @@ angular.module("starter")
         $scope.search = function (){
             $scope.bilatzaileIndex = [];
             if($scope.searchWord==="")
-                return
-            $rootScope.gaiak.forEach(function (element,index) {
+                return;
+            $rootScope.gaiak.forEach(function (element) {
                 if (element.gaia.toLowerCase().indexOf($scope.searchWord.toLowerCase())>=0){
-                    $scope.bilatzaileIndex.push(index+1);
+                    $scope.bilatzaileIndex.push(element);
                 }
             });
         };

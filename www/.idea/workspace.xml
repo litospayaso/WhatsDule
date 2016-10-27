@@ -26,7 +26,7 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
+            <state relative-caret-position="208">
               <caret line="112" column="36" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="36" />
               <folding />
             </state>
@@ -36,7 +36,7 @@
       <file leaf-file-name="bagoaz-hiztegiak.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/bagoaz-hiztegiak/bagoaz-hiztegiak.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="544">
               <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -45,11 +45,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bagoaz-about.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bagoaz-bilatzaile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bagoaz-about.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/bagoaz-about/bagoaz-about.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bagoaz-bilatzaile.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="137" selection-start-line="9" selection-start-column="137" selection-end-line="9" selection-end-column="137" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bagoaz-ariketak.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/bagoaz-ariketak/bagoaz-ariketak.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="125" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="125" />
               <folding />
             </state>
           </provider>
@@ -65,8 +95,6 @@
         <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/components/bagoaz-baloratzea/bagoaz-baloratzea.html" />
         <option value="$PROJECT_DIR$/components/bagoaz-ikusi/bagoaz-ikusi.html" />
-        <option value="$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.html" />
-        <option value="$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.js" />
         <option value="$PROJECT_DIR$/components/bagoaz-gaiak/bagoaz-gaiak.js" />
         <option value="$PROJECT_DIR$/components/bagoaz-gaiak/bagoaz-gaiak.html" />
         <option value="$PROJECT_DIR$/components/bagoaz-ariketak/bagoaz-ariketak.html" />
@@ -79,6 +107,8 @@
         <option value="$PROJECT_DIR$/components/bagoaz-hiztegiak/bagoaz-hiztegiak.html" />
         <option value="$PROJECT_DIR$/components/bagoaz-hiztegiak/bagoaz-hiztegiak.js" />
         <option value="$PROJECT_DIR$/components/bagoaz-about/bagoaz-about.html" />
+        <option value="$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.js" />
+        <option value="$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.html" />
       </list>
     </option>
   </component>
@@ -195,6 +225,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="bagoaz-bilatzaile" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bagoaz-ariketak" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bagoaz-about" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -287,16 +353,16 @@
       <workItem from="1477461288449" duration="14495000" />
       <workItem from="1477488704974" duration="5627000" />
       <workItem from="1477550057152" duration="3170000" />
-      <workItem from="1477559702869" duration="17278000" />
+      <workItem from="1477559702869" duration="18555000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44521000" />
+    <option name="totallyTimeSpent" value="45798000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16617863" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -304,7 +370,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19720496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22204968" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -580,16 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/bagoaz-export.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -621,14 +677,6 @@
           <folding>
             <element signature="n#style#0;n#ion-view#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/bagoaz-ariketak/bagoaz-ariketak.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,14 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="73" selection-start-line="6" selection-start-column="52" selection-end-line="6" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/bagoaz-hiztegiak/bagoaz-hiztegiak.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -684,7 +724,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
+        <state relative-caret-position="208">
           <caret line="112" column="36" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="36" />
           <folding />
         </state>
@@ -692,7 +732,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/bagoaz-hiztegiak/bagoaz-hiztegiak.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="544">
           <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -700,10 +740,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/bagoaz-about/bagoaz-about.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bagoaz-ariketak/bagoaz-ariketak.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="125" selection-start-line="4" selection-start-column="111" selection-end-line="4" selection-end-column="125" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/bagoaz-bilatzaile/bagoaz-bilatzaile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="137" selection-start-line="9" selection-start-column="137" selection-end-line="9" selection-end-column="137" />
           <folding />
         </state>
       </provider>
