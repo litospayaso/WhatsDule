@@ -1,6 +1,62 @@
-<div ng-controller="BagoazHiztegiak" style="padding-top: 130px;padding-left: 5px;padding-right: 5px">
-    <input type="text" class="form-control" placeholder="hizta" ng-model="hizta" ng-change="hiztegiak()">
-    <!--div ng-repeat="n in bilatzaileIndex" style="margin: 5px">
-        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="moveScreen('bagoazIkusi/gaia/'+n)">{{n}} Gaia</button>
-    </div-->
-</div>
+<ion-view view-title="Hiztegiak" style="margin-left:3px">
+    <ion-content>
+        <div ng-controller="BagoazHiztegiak">
+
+
+            <div class="list">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="text" placeholder="Hizta">
+                    </label>
+
+                    <div style="margin-left: 5px" ng-hide=searching>
+                        <label class="toggle toggle-positive">
+                            <input type="checkbox" ng-model=toggleValue ng-change="toggleAction()">
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </div>
+                    <button class="button button-small button-outline button-positive" ng-click="search()" ng-hide=searching>
+                        {{euskEs}}
+                    </button>
+
+                    <ion-spinner icon="bubbles" ng-show=searching></ion-spinner>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="item item-divider">
+                    I'm a Header in a Card!
+                </div>
+                <div class="item item-text-wrap">
+                    <ul>
+                        <li>uno</li>
+                        <li>uno</li>
+                        <li>uno</li>
+                    </ul>
+                    This is a basic Card with some text.
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="item item-divider">
+                    I'm a Header in a Card!
+                </div>
+                <div class="item item-text-wrap">
+                    <dl class="dl-horizontal">
+                        <dt>User Agent</dt>
+                        <dd>An HTML user agent is any device that interprets HTML documents.</dd>
+                        <dt>Client-side Scripting</dt>
+                        <dd>Client-side scripting generally refers to the category of computer programs on the web that are executed client-side i.e. by the user's web browser.</dd>
+                        <dt>Document Tree</dt>
+                        <dd>The tree of elements encoded in the source document.</dd>
+                    </dl>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

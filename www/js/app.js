@@ -57,7 +57,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/Bilatzaile',
       views: {
         'menuContent': {
-          templateUrl: 'components/bagoaz-Bilatzaile/bagoaz-Bilatzaile.html'
+          templateUrl: 'components/bagoaz-bilatzaile/bagoaz-bilatzaile.html'
+        }
+      }
+    })
+    .state('app.Hiztegiak', {
+      url: '/Hiztegiak',
+      views: {
+        'menuContent': {
+          templateUrl: 'components/bagoaz-hiztegiak/bagoaz-hiztegiak.html'
         }
       }
     })
