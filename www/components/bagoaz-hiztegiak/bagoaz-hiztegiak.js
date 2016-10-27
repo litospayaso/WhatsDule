@@ -7,6 +7,8 @@ angular.module("starter")
         $scope.toggleValue = true;
         $scope.euskEs="Eu_Es";
         $scope.searching=false;
+        $scope.translateCard=null;
+        $scope.exampleCard=null;
 
         $scope.toggleAction = function(){
             if ($scope.toggleValue){
@@ -17,26 +19,66 @@ angular.module("starter")
         };
 
         $scope.search = function () {
+            // console.log("hizta",$scope.hizta);
+            $scope.searching = true;
+
+            $http({
+              method: 'GET',
+              url: 'https://crossorigin.me/http://hiztegiak.elhuyar.eus/' + $scope.euskEs + '/' + $scope.hizta
+            }).then(function successCallback(response) {
+                // this callback will be called asynchronously
+                // when the response is available
+                $scope.searching = false;
+                $scope.translateCard=undefined;
+                $scope.exampleCard=undefined;
+
+                var traduccion = $scope.getFromBetween.get(response.data,"<strong>","</strong>");
+                traduccion = traduccion.slice(0, traduccion.length-2);
+                traduccion = traduccion.concat($scope.getFromBetween.get(response.data,"<span class='remark_eu_es'>","</span>"));
+                traduccion = traduccion.concat($scope.getFromBetween.get(response.data,"<span class='remark_es_eu'>","</span>"));
+
+                var ejemplos = $scope.getFromBetween.get(response.data,"<em>","</p>");
+
+                var ejemplosResultado = [];
+                var traduccionResultado = [];
+
+                traduccion.forEach(function (elem){
+                    if (elem.length>2 && traduccionResultado.indexOf(elem) === -1){
+                        traduccionResultado.push(elem);
+                    }
+                });
+
+                ejemplos.forEach(function (elem){
+                    var element = elem.split("</em>:"),
+                        push = {euskera:"",gaztelania:""};
+                    if(element.length===2){
+                        if(!element[0].includes("<") || !element[0].includes("<")){
+                            push.euskera = element[0];
+                            push.gaztelania = element[1].trim();
+                            ejemplosResultado.push(push);
+                        }
+                    }
+                });
+
+                traduccionResultado = traduccionResultado.slice(0, 10);
+                ejemplosResultado = ejemplosResultado.slice(0, 10);
+
+                if(traduccionResultado.length>0){
+                    $scope.translateCard = traduccionResultado;
+                }else{
+                    $scope.translateCard = ["La palabra que has consultado no está incluida en el diccionario."];
+                }
+                if(ejemplosResultado.length>0){
+                    $scope.exampleCard = ejemplosResultado;
+                }
+
+            }, function errorCallback(response) {
+                $scope.searching = false;
+                $scope.translateCard = ["Imposible conectar con el servidor de elHuyar."];
+            });
 
         };
-        // Simple GET request example:
-        // $http({
-        //   method: 'GET',
-        //   url: 'https://crossorigin.me/http://hiztegiak.elhuyar.eus/eu_es/dsa'
-        // }).then(function successCallback(response) {
-        //   // var str = 'this is the haystack {{{0}}} {{{1}}} {{{2}}} {{{3}}} {{{4}}} some text {{{5}}} end of haystack';
-        //   // var result = $scope.getFromBetween.get(str,"{{{","}}}");
-        //   console.log("resultado: ", $scope.getFromBetween.get(response.data,"<span class='remark_es_eu'>","</span>"));
-        //   console.log("resultado: ", $scope.getFromBetween.get(response.data,"<strong>","</strong>"));
-        //   console.log("resultado: ", $scope.getFromBetween.get(response.data,"<em>","</p>"));
-        //   // console.log("BIEEEN",response.data);
-        //   // this callback will be called asynchronously
-        //   // when the response is available
-        // }, function errorCallback(response) {
-        //   console.log("MAAAAL!!");
-        //   // called asynchronously if an error occurs
-        //   // or server returns response with an error status.
-        // });
+
 
         $scope.getFromBetween = {
             results:[],
@@ -78,6 +120,4 @@ angular.module("starter")
                 return this.results;
             }
         };
-
-
     }]);

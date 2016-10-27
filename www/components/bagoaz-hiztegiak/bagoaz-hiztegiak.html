@@ -6,7 +6,7 @@
             <div class="list">
                 <div class="item item-input-inset">
                     <label class="item-input-wrapper">
-                        <input type="text" placeholder="Hizta">
+                        <input type="text" placeholder="Hizta" ng-model="hizta">
                     </label>
 
                     <div style="margin-left: 5px" ng-hide=searching>
@@ -26,33 +26,28 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" ng-show=translateCard>
                 <div class="item item-divider">
-                    I'm a Header in a Card!
+                    <strong>{{hizta}}</strong>
                 </div>
                 <div class="item item-text-wrap">
                     <ul>
-                        <li>uno</li>
-                        <li>uno</li>
-                        <li>uno</li>
+                        <li ng-repeat="elem in translateCard" ng-bind-html-unsafe="opt.text">{{elem}}</li>
                     </ul>
-                    This is a basic Card with some text.
                 </div>
             </div>
 
 
-            <div class="card">
+            <div class="card" ng-show=exampleCard>
                 <div class="item item-divider">
-                    I'm a Header in a Card!
+                    <strong>Ejemplos</strong>
                 </div>
                 <div class="item item-text-wrap">
                     <dl class="dl-horizontal">
-                        <dt>User Agent</dt>
-                        <dd>An HTML user agent is any device that interprets HTML documents.</dd>
-                        <dt>Client-side Scripting</dt>
-                        <dd>Client-side scripting generally refers to the category of computer programs on the web that are executed client-side i.e. by the user's web browser.</dd>
-                        <dt>Document Tree</dt>
-                        <dd>The tree of elements encoded in the source document.</dd>
+                        <div ng-repeat="elem in exampleCard">
+                        <dt>{{elem.euskera}}</dt>
+                        <dd>{{elem.gaztelania}}</dd>
+                        </div>
                     </dl>
                 </div>
             </div>
