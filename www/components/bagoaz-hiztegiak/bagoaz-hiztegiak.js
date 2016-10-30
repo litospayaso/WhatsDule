@@ -18,6 +18,11 @@ angular.module("starter")
             }
         };
 
+        $scope.change = function (){
+          $scope.translateCard = false;
+          $scope.exampleCard = false;
+        };
+
         $scope.search = function () {
             // console.log("hizta",$scope.hizta);
             $scope.searching = true;
