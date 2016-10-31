@@ -28,67 +28,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.Laguntza', {
-    url: '/Laguntza',
+    .state('app.Contacts', {
+    url: '/Contacts',
     views: {
       'menuContent': {
-        templateUrl: 'components/bagoaz-about/bagoaz-about.html'
+        templateUrl: 'components/whatsDule-contacts/whatsDule-contacts.html'
       }
     }
   })
-
-  .state('app.Gaiak', {
-      url: '/Gaiak',
-      views: {
-        'menuContent': {
-          templateUrl: 'components/bagoaz-gaiak/bagoaz-gaiak.html'
-        }
-      }
-    })
-  .state('app.Ariketak', {
-      url: '/Ariketak',
-      views: {
-        'menuContent': {
-          templateUrl: 'components/bagoaz-ariketak/bagoaz-ariketak.html'
-        }
-      }
-    })
-    .state('app.Bilatzaile', {
-      url: '/Bilatzaile',
-      views: {
-        'menuContent': {
-          templateUrl: 'components/bagoaz-bilatzaile/bagoaz-bilatzaile.html'
-        }
-      }
-    })
-    .state('app.Hiztegiak', {
-      url: '/Hiztegiak',
-      views: {
-        'menuContent': {
-          templateUrl: 'components/bagoaz-hiztegiak/bagoaz-hiztegiak.html'
-        }
-      }
-    })
-
-  .state('app.Gaia', {
-    url: '/Ikusi/:tipo/:numero',
+    .state('app.Message', {
+    url: '/Message/:contact/:phone',
     views: {
       'menuContent': {
-        templateUrl: 'components/bagoaz-ikusi/bagoaz-ikusi.html'
-      }
-    }
-  })
-
-    .state('app.Ariketa', {
-    url: '/Baloratzea/:gaiak',
-    views: {
-      'menuContent': {
-        templateUrl: 'components/bagoaz-baloratzea/bagoaz-baloratzea.html'
+        templateUrl: 'components/whatsDule-message/whatsDule-message.html'
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/Gaiak');
+  $urlRouterProvider.otherwise('/app/Contacts');
 });
 
 angular.module("starter")
@@ -99,22 +56,5 @@ angular.module("starter")
       $location.path(targetScreen);
     };
 
-    $http.get('database/bagoaz-export.json').success(function (data) {
-      $rootScope.gaiak = data.gaiak;
-      $rootScope.lexiko = data.lexiko;
-      $rootScope.ariketak = data.ariketak;
-    });
-
-    $scope.colorButton = function (index){
-      var cookie = [];
-      if (JSON.parse(localStorage.getItem("cookie")) != null){
-        cookie = JSON.parse(localStorage.getItem("cookie"));
-      }
-      if (cookie.indexOf(index) > -1){
-        return "button button-block button-stable"
-      }else{
-        return "button button-block button-positive"
-      }
-    };
   }]);
 

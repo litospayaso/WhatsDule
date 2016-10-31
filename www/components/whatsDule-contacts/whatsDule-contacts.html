@@ -1,0 +1,17 @@
+<ion-view view-title="Contacts" style="margin-left:3px">
+  <ion-content>
+    <div ng-controller="contacts">
+      <div class="list">
+        <div ng-repeat="contact in contactList">
+          <a class="item item-avatar" ng-click="moveScreen('app/Message/' + contact.name + '/' + contact.phone)">
+            <img src="img/no-photo.png">
+            <h2>{{contact.name}}</h2>
+            <p>{{contact.phone}}</p>
+            <!--span class="item-note">18:30</span-->
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

@@ -1,4 +1,3 @@
-# Bagoaz
-Proyecto Bagoaz
+# WhatsDule
 
-Aplicacion movil para aprender Euskera de forma sencilla e interactiva.
+Mobile app to schedule your whatsApp messages for the future.
