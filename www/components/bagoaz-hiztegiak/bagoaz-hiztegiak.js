@@ -24,7 +24,6 @@ angular.module("starter")
         };
 
         $scope.search = function () {
-            // console.log("hizta",$scope.hizta);
             $scope.searching = true;
 
             $http({
@@ -57,7 +56,7 @@ angular.module("starter")
                     var element = elem.split("</em>:"),
                         push = {euskera:"",gaztelania:""};
                     if(element.length===2){
-                        if(!element[0].includes("<") || !element[0].includes("<")){
+                        if(!element[0].includes("<") || !element[0].includes("<")){ //Removing not Examples.
                             push.euskera = element[0];
                             push.gaztelania = element[1].trim();
                             ejemplosResultado.push(push);
@@ -77,7 +76,7 @@ angular.module("starter")
                     $scope.exampleCard = ejemplosResultado;
                 }
 
-            }, function errorCallback(response) {
+            }, function errorCallback(response) { //Error case not connection available
                 $scope.searching = false;
                 $scope.translateCard = ["Imposible conectar con el servidor de elHuyar."];
             });
