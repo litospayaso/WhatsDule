@@ -1,0 +1,26 @@
+<ion-view view-title="Schedule" style="margin-left:3px">
+  <ion-content>
+    <div ng-controller="schedule" data-ng-init="init()">
+
+      <button type="button" class="button button-block button-balanced" ng-click="moveScreen('/app/Contacts')">New message</button>
+
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search" ng-model="search" ng-change="find()">
+      </label>
+
+      <div class="list">
+        <div ng-repeat="message in messagesList">
+          <a class="item item-icon-left" ng-click="moveScreen('app/Edit/' + message.id)">
+          <!--<a class="item item-avatar" ng-click="moveScreen('app/Message/' + contact.name + '/' + contact.phone)">-->
+            <i class="icon ion-email"></i>
+            <h2>{{message.name}}</h2>
+            <p>{{message.preview}}</p>
+            <span class="item-note">{{message.time}}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+

@@ -12,19 +12,128 @@
       </div>
 
       <label class="item item-input item-floating-label">
-        <textarea type="text" ng-model="erantzun" placeholder="Message"></textarea>
+        <textarea type="text" ng-model="text" ng-change="date()" placeholder="Message"></textarea>
       </label>
 
-      <ion-item>
-        <ion-label>Gender</ion-label>
-        <ion-select [(ngModel)]="gender">
-          <ion-option value="f" selected="true">Female</ion-option>
-          <ion-option value="m">Male</ion-option>
-        </ion-select>
-      </ion-item>
+      <div style="margin-left: 7px">
+        <div class="row">
+          <div class="col">
+            <select class="form-control" ng-model="day" ng-change="date()">
+              <option hidden >dd</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-control" ng-model="month" ng-change="date()">
+              <option hidden >MM</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-control" ng-model="hour" ng-change="date()">
+              <option hidden >HH</option>
+              <option>00</option>
+              <option>01</option>
+              <option>02</option>
+              <option>03</option>
+              <option>04</option>
+              <option>05</option>
+              <option>06</option>
+              <option>07</option>
+              <option>08</option>
+              <option>09</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-control" ng-model="minutes" ng-change="date()">
+              <option hidden >mm</option>
+              <option>00</option>
+              <option>05</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>25</option>
+              <option>30</option>
+              <option>35</option>
+              <option>40</option>
+              <option>45</option>
+              <option>50</option>
+              <option>55</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-      <button type="button" class="button button-block button-positive" ng-click="zuzendu()">Schedule</button>
+      <div ng-hide="edit">
+        <button type="button" class="button button-block button-balanced" ng-disabled="disButton" ng-click="createMessage()">Schedule</button>
+      </div>
 
-    </div>
+      <div ng-show="edit" style="margin-left: 13px">
+        <div class="row">
+          <div class="col">
+            <button type="button" class="button button-block button-assertive" ng-click="deleteMessage()">Delete</button>
+          </div>
+          <div class="col">
+            <button type="button" class="button button-block button-balanced" ng-click="editMessage()">Save</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
   </ion-content>
 </ion-view>

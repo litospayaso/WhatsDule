@@ -36,6 +36,25 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       }
     }
   })
+
+    .state('app.Schedule', {
+    url: '/Schedule/',
+    views: {
+      'menuContent': {
+        templateUrl: 'components/whatsDule-schedule/whatsDule-schedule.html'
+      }
+    }
+  })
+
+    .state('app.Edit', {
+    url: '/Edit/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'components/whatsDule-message/whatsDule-message.html'
+      }
+    }
+  })
+
     .state('app.Message', {
     url: '/Message/:contact/:phone',
     views: {
@@ -45,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/Contacts');
+  $urlRouterProvider.otherwise('/app/Schedule/');
 });
 
 angular.module("starter")
