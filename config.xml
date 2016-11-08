@@ -5,8 +5,8 @@
         <author email="angel.jesuita@gmail.com" href="http://www.twitter.com/angelitq_">Ángel Hita</author>
         <content src="index.html" />
 	<access origin="*"/>
-        <preference name="android-minSdkVersion" value="14" />
-        <preference name="SplashScreen" value="screen" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="SplashScreen" value="screen" />
   	<preference name="webviewbounce" value="false"/>
 	<preference name="UIWebViewBounce" value="false"/>
   	<preference name="DisallowOverscroll" value="true"/>
@@ -31,6 +31,7 @@
   	<plugin name="cordova-plugin-statusbar" spec="~2.2.0"/>
   	<plugin name="ionic-plugin-keyboard" spec="~2.2.1"/>
   	<plugin name="cordova-plugin-contacts-phonenumbers" spec="~0.0.8"/>
+  	<plugin name="cordova-plugin-x-socialsharing" spec="~5.1.0"/>
 	
         <platform name="android">
             <allow-intent href="market:*" />

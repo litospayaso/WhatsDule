@@ -44,12 +44,19 @@ angular.module("starter")
         "name"  : $scope.name,
         "phone" : $scope.phone,
         "message" : $scope.text,
-        "preview" : $scope.text.substr(0,20) + "...",
+        "preview" : $scope.text.length < 20 ? $scope.text : $scope.text.substr(0,20) + "...",
         "date" : date,
         "time" : $scope.day + "/" + $scope.month + " (" + $scope.hour + ":" + $scope.minutes + ")"
       };
       cookie.push(message);
       localStorage.setItem("messages", JSON.stringify(cookie));
+      window.plugins.socialsharing.shareViaWhatsAppToReceiver(
+        message.phone,
+        message.message,
+        null /* img */,
+        null /* url */,
+        function() {
+          console.log('share ok')});
       $scope.moveScreen('#/app/Schedule/');
       $window.location.reload();
     };
@@ -60,7 +67,7 @@ angular.module("starter")
         "name"  : $scope.name,
         "phone" : $scope.phone,
         "message" : $scope.text,
-        "preview" : $scope.text.substr(0,20) + "...",
+        "preview" : $scope.text.length < 20 ? $scope.text : $scope.text.substr(0,20) + "...",
         "date" : date,
         "time" : $scope.day + "/" + $scope.month + " (" + $scope.hour + ":" + $scope.minutes + ")"
       };
